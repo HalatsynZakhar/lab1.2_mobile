@@ -1,40 +1,3 @@
-package ua.kpi.comsys.io8207;
-
-import android.os.Bundle;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Random;
-import java.util.stream.IntStream;
-
-public class MainActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(navView, navController);
-
-        lab12();
-    }
-
     public void lab12() {
         System.out.println(" \n\nLab1.2 Start-------------------------------------------------\n\n ");
 
@@ -170,18 +133,21 @@ public class MainActivity extends AppCompatActivity {
 
         //Завдання 6-12--------------------------------
         System.out.println("Приклад Ініціалізаціх з заданими параметрами (15-16)");
-        CoordinateZH a = new CoordinateZH(12,12,12,true);
+        Lab1_2_CoordinateZH a = new Lab1_2_CoordinateZH(-12,30,40,false);
+        Lab1_2_CoordinateZH false_test1 = new Lab1_2_CoordinateZH(90, 30, 40, true);
+        System.out.println(false_test1);
+        Lab1_2_CoordinateZH false_test2 = new Lab1_2_CoordinateZH(180, 30, 40, false);
+        System.out.println(false_test2);
         System.out.println(a);
         System.out.println("Приклад Ініціалізаціх без заданих параметрів (15-16)");
-        CoordinateZH b = new CoordinateZH();
+        Lab1_2_CoordinateZH b = new Lab1_2_CoordinateZH();
         System.out.println(b);
         System.out.println("Координати в звичайному вигляді (16)");
         System.out.println(a.outCoordinate());
         System.out.println("Координати в десятичному вигляді (16)");
         System.out.println(a.outCoordinate2());
         System.out.println("Середнє між координатами (16)");
-        System.out.println(a.outCoordinate3(-24, 48, 48, true));
+        System.out.println(a.outCoordinate3(12, 30, 40, false));
         System.out.println("Середнє між довільними (17)");
-        System.out.println(CoordinateZH.outCoordinate4(12, 12, 12, true, -20, 40, 40, true));
+        System.out.println(Lab1_2_CoordinateZH.outCoordinate4(12, 30, 40, false, -12, 30, 40, false));
     }
-}
